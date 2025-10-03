@@ -1,3 +1,29 @@
+
+.imgBackground{
+  background-image: url("https://i.ibb.co.com/FbT2jNzr/library-LG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: initial;
+  background-position-x: left;
+  /* background-position-y: left; */
+  /* background-attachment: fixed; */
+}
+.grad{
+  background-image: radial-gradient(circle, #f86969, #2dfa56, #ff85e9 , #5223fa);
+  color: yellow;
+  text-shadow:#5223fa;
+}
+.grad2{
+  background-image: radial-gradient(circle, #fd4c4c, #f950da , #5e32fe);
+  color:rgb(250, 250, 120);
+  text-shadow: #2dfa56;;
+}
+.grad3{
+  background-image: radial-gradient(circle, #f950da, #5e32fe,#fd4c4c);
+  color:rgb(250, 250, 120);
+  text-shadow: #2dfa56;;
+}
 .App {
   text-align: center;
 }
