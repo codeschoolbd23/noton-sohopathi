@@ -5,53 +5,64 @@ import { SiGooglesheets, SiSemanticuireact } from 'react-icons/si';
 import { GiPapers, GiProgression } from 'react-icons/gi';
 import { BsFillPatchQuestionFill } from 'react-icons/bs';
 
-const AmarclassSidebar = () => {
+const AmarclassSidebar = ({userClassObject}) => {
+  console.log(userClassObject.userClassPosition);
     const { user, logOut } = useContext(AuthContext);
     const amarclass = [
       {
-        amarId: 1,
+        id: 1,
         to1: "/amarclass/profile",
-        topicName: "আমার বৃত্তান্ত",
-        subjectName: <>{user?.displayName?.slice(0, 16)}</>,
+        bookName: "আমার বৃত্তান্ত",
+        userClassName: <>{user?.displayName?.slice(0, 16)}</>,
         amarDescription:
           "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: <SiSemanticuireact className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />,
+        amarImages: (
+          <SiSemanticuireact className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
+        ),
       },
       {
-        amarId: 2,
-        to1: "/amarclass/nctb-9",
-        topicName: "আমার পাঠ্য বই",
-        subjectName: "নবম শ্রেণি",
+        id: 2,
+        to1: `/amarclass/${userClassObject.userClassPosition}/book`,
+        bookName: "আমার পাঠ্য বই",
+        userClassName: `${userClassObject?.userClassName}`,
         amarDescription:
           "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: <GiPapers className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />,
+        amarImages: (
+          <GiPapers className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
+        ),
       },
       {
-        amarId: 3,
-        to1: "/amarclass/question-paper",
-        topicName: "পরীক্ষার প্রশ্নপত্র",
-        subjectName: "বিজ্ঞান বিভাগ",
+        id: 3,
+        to1: `/amarclass/${userClassObject.userClassPosition}/question-paper`,
+        bookName: "পরীক্ষার প্রশ্নপত্র",
+        userClassName: "বিজ্ঞান বিভাগ",
         amarDescription:
           "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: <BsFillPatchQuestionFill className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />,
+        amarImages: (
+          <BsFillPatchQuestionFill className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
+        ),
       },
       {
-        amarId: 4,
-        to1: "/amarclass/lecture-sheet",
-        topicName: "লেকচার শীট",
-        subjectName: "বিজ্ঞান বিভাগ",
+        id: 4,
+        to1: `/amarclass/${userClassObject.userClassPosition}/lecture-sheet`,
+        bookName: "লেকচার শীট",
+        userClassName: "বিজ্ঞান বিভাগ",
         amarDescription:
           "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: <SiGooglesheets className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />,
+        amarImages: (
+          <SiGooglesheets className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
+        ),
       },
       {
-        amarId: 5,
-        to1: "/amarclass/class-performance",
-        topicName: "আমার পড়াশুনার মান",
-        subjectName: "প্রতিবেদন",
+        id: 5,
+        to1: `/amarclass/${userClassObject.userClassPosition}/class-performance`,
+        bookName: "আমার পড়াশুনার মান",
+        userClassName: "প্রতিবেদন",
         amarDescription:
           "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: <GiProgression className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />,
+        amarImages: (
+          <GiProgression className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
+        ),
       },
     ];
     return (
@@ -64,16 +75,16 @@ const AmarclassSidebar = () => {
           {amarclass.map((amar) => (
             <li
               className="flex flex-row justify-start items-center"
-              key={amar.amarId}
+              key={amar.id}
             >
               <Link to={`${amar.to1}`}>{amar.amarImages}</Link>
               <div className="flex flex-col justify-start items-start mx-0">
-                <div className="text-xs uppercase">{amar.topicName}</div>
+                <div className="text-xs uppercase">{amar.bookName}</div>
                 <Link
                   to={`${amar.to1}`}
                   className="text-xs uppercase opacity-80"
                 >
-                  {amar.subjectName}
+                  {amar.userClassName}
                 </Link>
               </div>
               <Link

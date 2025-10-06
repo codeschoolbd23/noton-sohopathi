@@ -21,14 +21,17 @@ const Library = () => {
               ডাউনলোড করে নিতে পার।
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center gap-2 my-5 text-xl font-bold text-center">
-            <Link to="/school" className="btn btn-primary text-white w-56 p-2">
+          <div className="flex flex-col justify-center items-center gap-2 my-5">
+            <Link
+              to="/school"
+              className="bg-primary hover:bg-lime-400 rounded-full text-shadow-lg/20 text-white px-5 py-2 w-72 text-2xl font-bold text-center"
+            >
               স্কুল লাইব্রেরী
             </Link>
 
-            <Link to="/college" className="btn btn-primary text-white w-56 p-2">
+            {/* <Link to="/college" className="btn btn-primary text-white w-56 p-2">
               কলেজ লাইব্রেরী
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

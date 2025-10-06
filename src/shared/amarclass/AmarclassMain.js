@@ -1,11 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import AmarclassSidebar from './AmarclassSidebar';
+// import AmarclassSidebar from './AmarclassSidebar';
 
 const AmarclassMain = () => {
     return (
       <>
-        <div className="drawer lg:drawer-open grad3">
+        <div className="flex-grow h-screen overflow-y-auto">
+          <Outlet />
+        </div>
+        {/* <div className="drawer lg:drawer-open grad3">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <label
@@ -27,7 +30,7 @@ const AmarclassMain = () => {
               <AmarclassSidebar />
             </ul>
           </div>
-        </div>
+        </div> */}
       </>
     );
 };

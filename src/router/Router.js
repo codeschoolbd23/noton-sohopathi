@@ -11,11 +11,46 @@ import Sohopathi from '../shared/sohopathi/Sohopathi';
 import Amarclass from '../shared/amarclass/Amarclass';
 import AmarclassMain from '../shared/amarclass/AmarclassMain';
 import Profile from '../shared/profile/Profile';
-import Pdf from '../documentation/utilities/pdf/Pdf';
 import Lecturesheet from '../shared/amarclass/Lecturesheet';
 import Performance from '../shared/amarclass/Performance';
 import QuestionLayout from '../shared/amarclass/QuestionLayout';
-
+import {
+  ClassSix,
+  ClassSeven,
+  ClassEight,
+  ClassNine,
+  ClassTen,
+  ClassEleven,
+  ClassTwelve,
+  ClassSixBook,
+  ClassSevenBook,
+  ClassEightBook,
+  ClassNineBook,
+  ClassTenBook,
+  ClassElevenBook,
+  ClassTwelveBook,
+  ClassSixQuestionpaper,
+  ClassSevenQuestionpaper,
+  ClassEightQuestionpaper,
+  ClassNineQuestionpaper,
+  ClassTenQuestionpaper,
+  ClassElevenQuestionpaper,
+  ClassTwelveQuestionpaper,
+  ClassSixLecturesheet,
+  ClassSevenLecturesheet,
+  ClassEightLecturesheet,
+  ClassNineLecturesheet,
+  ClassTenLecturesheet,
+  ClassElevenLecturesheet,
+  ClassTwelveLecturesheet,
+  ClassSixPerformance,
+  ClassSevenPerformance,
+  ClassEightPerformance,
+  ClassNinePerformance,
+  ClassTenPerformance,
+  ClassElevenPerformance,
+  ClassTwelvePerformance,
+} from "../documentation/utilities/Data/BookClass";
 const Router = () => {
     const router = createBrowserRouter([
       {
@@ -51,20 +86,242 @@ const Router = () => {
                 element: <Profile />,
               },
               {
-                path: "/amarclass/nctb-9",
-                element: <Pdf />,
+                path: "/amarclass/6",
+                element: <ClassSix />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/6/book",
+                    element: <ClassSixBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/6/question-paper",
+                    element: <ClassSixQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/6/lecture-sheet",
+                    element: <ClassSixLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/6/class-performance",
+                    element: <ClassSixPerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
               },
               {
-                path: "/amarclass/question-paper",
-                element: <QuestionLayout />,
+                path: "/amarclass/7",
+                element: <ClassSeven />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/7/book",
+                    element: <ClassSevenBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/7/question-paper",
+                    element: <ClassSevenQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/7/lecture-sheet",
+                    element: <ClassSevenLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/7/class-performance",
+                    element: <ClassSevenPerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
               },
               {
-                path: "/amarclass/lecture-sheet",
-                element: <Lecturesheet />,
+                path: "/amarclass/8",
+                element: <ClassEight />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/8/book",
+                    element: <ClassEightBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/8/question-paper",
+                    element: <ClassEightQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/8/lecture-sheet",
+                    element: <ClassEightLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/8/class-performance",
+                    element: <ClassEightPerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
               },
               {
-                path: "/amarclass/class-performance",
-                element: <Performance/>,
+                path: "/amarclass/9",
+                element: <ClassNine />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/9/book",
+                    element: <ClassNineBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/9/question-paper",
+                    element: <ClassNineQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/9/lecture-sheet",
+                    element: <ClassNineLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/9/class-performance",
+                    element: <ClassNinePerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
+              },
+              {
+                path: "/amarclass/10",
+                element: <ClassTen />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/10/book",
+                    element: <ClassTenBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/10/question-paper",
+                    element: <ClassTenQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/10/lecture-sheet",
+                    element: <ClassTenLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/10/class-performance",
+                    element: <ClassTenPerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
+              },
+              {
+                path: "/amarclass/11",
+                element: <ClassEleven />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/11/book",
+                    element: <ClassElevenBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/11/question-paper",
+                    element: <ClassElevenQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/11/lecture-sheet",
+                    element: <ClassElevenLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/11/class-performance",
+                    element: <ClassElevenPerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
+              },
+              {
+                path: "/amarclass/12",
+                element: <ClassTwelve />,
+                loader: async () =>
+                  fetch(`https://sohopathi-server.vercel.app/library`),
+                children: [
+                  {
+                    path: "/amarclass/12/book",
+                    element: <ClassTwelveBook />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/library`),
+                  },
+                  {
+                    path: "/amarclass/12/question-paper",
+                    element: <ClassTwelveQuestionpaper />,
+                    loader: async () =>
+                      fetch(
+                        `https://sohopathi-server.vercel.app/questionpaper`
+                      ),
+                  },
+                  {
+                    path: "/amarclass/12/lecture-sheet",
+                    element: <ClassTwelveLecturesheet />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/lecturesheet`),
+                  },
+                  {
+                    path: "/amarclass/12/class-performance",
+                    element: <ClassTwelvePerformance />,
+                    loader: async () =>
+                      fetch(`https://sohopathi-server.vercel.app/performance`),
+                  },
+                ],
               },
             ],
           },
@@ -75,6 +332,8 @@ const Router = () => {
           {
             path: "/school",
             element: <SchoolLibrary />,
+            loader: async () =>
+              fetch(`https://sohopathi-server.vercel.app/library`),
           },
           {
             path: "/college",
