@@ -47,7 +47,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="w-full grad2 text-white shadow-sm text-shadow-lg/10 flex lg:flex-row-reverse justify-between items-center">
+    <div className="w-full grad2 text-white shadow-sm text-shadow-lg/10 flex lg:flex-row-reverse justify-between items-center h-28">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
           <svg
@@ -77,7 +77,7 @@ const Nav = () => {
       <div className="w-32 ml-auto hidden lg:flex justify-end px-1">
         {accountBtn}
       </div>
-      <div className="flex justify-center items-center  w-full mx-auto">
+      <div className="flex justify-center items-center  w-full">
         <div className="hidden lg:flex flex-wrap">{menubar}</div>
 
         {user?.email ? (
@@ -90,6 +90,17 @@ const Nav = () => {
           </Link>
         )}
       </div>
+        {user?.photoURL ? (
+          <div className="ml-auto">
+            <img
+              src={`${user?.photoURL}`}
+              alt="user"
+              className="rounded-full w-26 h-26 p-2"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
     </div>
   );
 };
