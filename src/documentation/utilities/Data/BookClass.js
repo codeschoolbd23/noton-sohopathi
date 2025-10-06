@@ -2,9 +2,8 @@ import React from 'react';
 // import BookMemo from './BookMemo';
 import ClassMemo from './ClassMemo';
 import BookMemo from './BookMemo';
-import QuestionLayout from '../../../shared/amarclass/QuestionLayout';
-import Lecturesheet from '../../../shared/amarclass/Lecturesheet';
-import Performance from '../../../shared/amarclass/Performance';
+import { Lecturesheet, Performance, QuestionLayout } from './Data/Combined';
+import Profile from '../../../shared/profile/Profile';
 
 const ClassSix=()=>{
 return <ClassMemo userClassName="Six (ষষ্ঠ)" userClassPosition="6"/>
@@ -112,6 +111,27 @@ const ClassElevenPerformance=()=>{
 const ClassTwelvePerformance=()=>{
     return <Performance userClassName="XII (দ্বাদশ)" userClassPosition="12" />;
 }
+const ClassSixProfile=()=>{
+    return <Profile userClassName="Six (ষষ্ঠ)" userClassPosition="6" />;
+}
+const ClassSevenProfile=()=>{
+    return <Profile userClassName="Seven (সপ্তম)" userClassPosition="7" />;
+}
+const ClassEightProfile=()=>{
+    return <Profile userClassName="Eight (অষ্টম)" userClassPosition="8" />;
+}
+const ClassNineProfile=()=>{
+    return <Profile userClassName="Nine (নবম)" userClassPosition="9" />;
+}
+const ClassTenProfile=()=>{
+    return <Profile userClassName="Ten (দশম)" userClassPosition="10" />;
+}
+const ClassElevenProfile=()=>{
+    return <Profile userClassName="XI (একাদশ)" userClassPosition="11" />;
+}
+const ClassTwelveProfile=()=>{
+    return <Performance userClassName="XII (দ্বাদশ)" userClassPosition="12" />;
+}
 export {
   ClassSix,
   ClassSeven,
@@ -148,4 +168,11 @@ ClassNinePerformance,
 ClassTenPerformance,
 ClassElevenPerformance,
 ClassTwelvePerformance,
+ClassSixProfile,
+ClassSevenProfile,
+ClassEightProfile,
+ClassNineProfile,
+ClassTenProfile,
+ClassElevenProfile,
+ClassTwelveProfile,
 };

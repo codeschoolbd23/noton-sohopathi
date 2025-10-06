@@ -11,9 +11,6 @@ import Sohopathi from '../shared/sohopathi/Sohopathi';
 import Amarclass from '../shared/amarclass/Amarclass';
 import AmarclassMain from '../shared/amarclass/AmarclassMain';
 import Profile from '../shared/profile/Profile';
-import Lecturesheet from '../shared/amarclass/Lecturesheet';
-import Performance from '../shared/amarclass/Performance';
-import QuestionLayout from '../shared/amarclass/QuestionLayout';
 import {
   ClassSix,
   ClassSeven,
@@ -81,16 +78,20 @@ const Router = () => {
                 path: "/amarclass",
                 element: <Amarclass />,
               },
-              {
-                path: "/amarclass/profile",
-                element: <Profile />,
-              },
+              // {
+              //   path: "/amarclass/profile",
+              //   element: <Profile />,
+              // },
               {
                 path: "/amarclass/6",
                 element: <ClassSix />,
                 loader: async () =>
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
+                  {
+                    path: "/amarclass/6",
+                    element: <Profile />,
+                  },
                   {
                     path: "/amarclass/6/book",
                     element: <ClassSixBook />,
@@ -126,6 +127,10 @@ const Router = () => {
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
                   {
+                    path: "/amarclass/7",
+                    element: <Profile />,
+                  },
+                  {
                     path: "/amarclass/7/book",
                     element: <ClassSevenBook />,
                     loader: async () =>
@@ -159,6 +164,10 @@ const Router = () => {
                 loader: async () =>
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
+                  {
+                    path: "/amarclass/8",
+                    element: <Profile />,
+                  },
                   {
                     path: "/amarclass/8/book",
                     element: <ClassEightBook />,
@@ -194,6 +203,10 @@ const Router = () => {
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
                   {
+                    path: "/amarclass/9",
+                    element: <Profile />,
+                  },
+                  {
                     path: "/amarclass/9/book",
                     element: <ClassNineBook />,
                     loader: async () =>
@@ -227,6 +240,10 @@ const Router = () => {
                 loader: async () =>
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
+                  {
+                    path: "/amarclass/10",
+                    element: <Profile />,
+                  },
                   {
                     path: "/amarclass/10/book",
                     element: <ClassTenBook />,
@@ -262,6 +279,10 @@ const Router = () => {
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
                   {
+                    path: "/amarclass/11",
+                    element: <Profile />,
+                  },
+                  {
                     path: "/amarclass/11/book",
                     element: <ClassElevenBook />,
                     loader: async () =>
@@ -295,6 +316,10 @@ const Router = () => {
                 loader: async () =>
                   fetch(`https://sohopathi-server.vercel.app/library`),
                 children: [
+                  {
+                    path: "/amarclass/12",
+                    element: <Profile />,
+                  },
                   {
                     path: "/amarclass/12/book",
                     element: <ClassTwelveBook />,

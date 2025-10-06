@@ -11,7 +11,7 @@ const AmarclassSidebar = ({userClassObject}) => {
     const amarclass = [
       {
         id: 1,
-        to1: "/amarclass/profile",
+        to1: `/amarclass/${userClassObject.userClassPosition}`,
         bookName: "আমার বৃত্তান্ত",
         userClassName: <>{user?.displayName?.slice(0, 16)}</>,
         amarDescription:
@@ -69,8 +69,12 @@ const AmarclassSidebar = ({userClassObject}) => {
       <div className="h-screen overflow-y-auto">
         <ul className="list text-yellow-200">
           <div className="flex flex-col justify-start items-center p-3 shadow-xl">
-            <p className="text-justify w-full text-shadow-lg/50">Hi,{user?.displayName}</p>
-            <p className="text-justify w-full text-shadow-lg/50">Your Class material is bellow.</p>
+            <p className="text-justify w-full text-shadow-lg/50">
+              Hi,{user?.displayName}
+            </p>
+            <p className="text-justify w-full text-shadow-lg/50">
+              Your Class material is bellow.
+            </p>
           </div>
           {amarclass.map((amar) => (
             <li
@@ -78,15 +82,15 @@ const AmarclassSidebar = ({userClassObject}) => {
               key={amar.id}
             >
               <Link to={`${amar.to1}`}>{amar.amarImages}</Link>
-              <div className="flex flex-col justify-start items-start mx-0">
+              <Link
+                to={`${amar.to1}`}
+                className="flex flex-col justify-start items-start mx-0"
+              >
                 <div className="text-xs uppercase">{amar.bookName}</div>
-                <Link
-                  to={`${amar.to1}`}
-                  className="text-xs uppercase opacity-80"
-                >
+                <h1 className="text-xs uppercase opacity-80">
                   {amar.userClassName}
-                </Link>
-              </div>
+                </h1>
+              </Link>
               <Link
                 to={`${amar.to1}`}
                 className="btn btn-square btn-ghost navbar-end ml-auto"
