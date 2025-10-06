@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Basic = () => {
+const Error = () => {
     return (
         <div>
-            
+            Error
         </div>
     );
 };
 
-export default Basic;
+export default Error;

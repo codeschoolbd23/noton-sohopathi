@@ -101,7 +101,7 @@ const Nctb = () => {
             allow="autoplay"
             height={"380"}
             aria-brailleroledescription="Preview of the book"
-            title={`${bd.book_name}`}
+            title={`${bd?.book_name}`}
           />
         </span>
       ))}
@@ -110,13 +110,6 @@ const Nctb = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      {/* <iframe
-        src="https://drive.google.com/file/d/1-5oDud4UWiCI9p5xKDumehENeE1fP9Ot/preview"
-        width="640"
-        height="480"
-        allow="autoplay"
-        title="jj"
-      /> */}
       <h1 className="grad3 text-6xl font-extrabold text-shadow-lg/50 text-center shadow-2xl bg-primary text-yellow-200 p-5 w-full">
         লাইব্রেরী
       </h1>

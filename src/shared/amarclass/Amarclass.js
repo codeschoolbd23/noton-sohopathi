@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Amarclass = () => {
  const cssLinkBtn="btn w-48 bg-blue-700"
   return (
-        <div className="p-10 flex flex-col flex-grow">
+        <div className="p-10 flex flex-col flex-grow grad2">
           <h1>Select Your Class</h1>
           <Link to="/amarclass/6"
           className={`${cssLinkBtn}`}

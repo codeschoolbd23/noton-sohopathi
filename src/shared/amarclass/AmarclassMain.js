@@ -1,36 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-// import AmarclassSidebar from './AmarclassSidebar';
-
 const AmarclassMain = () => {
     return (
       <>
         <div className="flex-grow h-screen overflow-y-auto">
           <Outlet />
         </div>
-        {/* <div className="drawer lg:drawer-open grad3">
-          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            <label
-              htmlFor="my-drawer"
-              className="grad3 drawer-button rounded-none flex lg:hidden text-start p-1 border-b-2 border-b-green-400 w-full"
-            >ক্লাস মেনু
-            </label>
-            <div className="flex-grow h-screen overflow-y-auto">
-              <Outlet />
-            </div>
-          </div>
-          <div className="drawer-side z-50">
-            <label
-              htmlFor="my-drawer"
-              aria-label="close sidebar"
-              className="drawer-overlay"
-            ></label>
-            <ul className="menu grad3">
-              <AmarclassSidebar />
-            </ul>
-          </div>
-        </div> */}
       </>
     );
 };
