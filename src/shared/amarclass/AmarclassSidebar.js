@@ -14,9 +14,7 @@ const AmarclassSidebar = ({userClassObject}) => {
         to1: `/amarclass/${userClassObject.userClassPosition}`,
         bookName: "আমার বৃত্তান্ত",
         userClassName: <>{user?.displayName?.slice(0, 16)}</>,
-        amarDescription:
-          "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: (
+         amarImages: (
           <SiSemanticuireact className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -25,9 +23,7 @@ const AmarclassSidebar = ({userClassObject}) => {
         to1: `/amarclass/${userClassObject.userClassPosition}/book`,
         bookName: "আমার পাঠ্য বই",
         userClassName: `${userClassObject?.userClassName}`,
-        amarDescription:
-          "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: (
+         amarImages: (
           <GiPapers className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -36,9 +32,7 @@ const AmarclassSidebar = ({userClassObject}) => {
         to1: `/amarclass/${userClassObject.userClassPosition}/question-paper`,
         bookName: "পরীক্ষার প্রশ্নপত্র",
         userClassName: "বিজ্ঞান বিভাগ",
-        amarDescription:
-          "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: (
+         amarImages: (
           <BsFillPatchQuestionFill className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -47,9 +41,7 @@ const AmarclassSidebar = ({userClassObject}) => {
         to1: `/amarclass/${userClassObject.userClassPosition}/lecture-sheet`,
         bookName: "লেকচার শীট",
         userClassName: "বিজ্ঞান বিভাগ",
-        amarDescription:
-          "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: (
+         amarImages: (
           <SiGooglesheets className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -58,9 +50,7 @@ const AmarclassSidebar = ({userClassObject}) => {
         to1: `/amarclass/${userClassObject.userClassPosition}/class-performance`,
         bookName: "আমার পড়াশুনার মান",
         userClassName: "প্রতিবেদন",
-        amarDescription:
-          "Remaining Reason,became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa’s most iconic tracks.",
-        amarImages: (
+         amarImages: (
           <GiProgression className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
