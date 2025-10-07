@@ -6,7 +6,7 @@ const Profile = () => {
     const {user}=useContext(AuthContext)
     return (
       <div className="p-2 lg:p-5">
-        <h1>{user.metadata.lastSignInTime}</h1>
+        <h1>{user?.metadata?.lastSignInTime}</h1>
         <div className="flex flex-col justify-start items-start">
           <h1 className="text-5xl font-bold">
             {user?.displayName || "My Name unable"}
