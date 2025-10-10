@@ -134,41 +134,39 @@ const ProfileMimo = () => {
 
   return (
     <div className="w-full">
-        <div className="p-1 grad3 lg:w-1/2 mx-auto h-screen my-2">
-          <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
-          {
-            <form
-              onSubmit={handleSubmit(handleUploadData2)}
-              className="w-full "
-            >
-              <div className="w-full">
-                {profileData?.map((profile) => (
-                  <div key={profile.id} className="w-full">
-                    <input
-                      type={profile?.type}
-                      placeholder={profile?.defaultValue}
-                      className={`${cssInput}`}
-                      {...register(`${profile?.inputName}`, {
-                        required: true,
-                        disabled: profile?.disabled,
-                      })}
-                    />
-                  </div>
-                ))}
-              </div>
-              <button className="grad3 btn p-4 w-full bg-blue-600 text-white text-2xl hover:text-blue-500 hover:bg-yellow-100 rounded-full">
-                সাবমিট
+      <div className="p-1 grad3 lg:w-1/2 mx-auto h-screen my-2">
+        <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
+        {
+          <form onSubmit={handleSubmit(handleUploadData2)} className="w-full ">
+            <div className="w-full">
+              {profileData?.map((profile) => (
+                <div key={profile.id} className="w-full">
+                  <input
+                    type={profile?.type}
+                    placeholder={profile?.defaultValue}
+                    className={`${cssInput}`}
+                    {...register(`${profile?.inputName}`, {
+                      required: true,
+                      disabled: profile?.disabled,
+                    })}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <button className="grad3 btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full">
+                Submit
               </button>
               <Link
                 to="/amarclass/9"
-                className="grad3 btn p-4 w-full bg-blue-600 text-white text-2xl hover:text-blue-500 hover:bg-yellow-100 rounded-full"
+                className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full"
               >
-                Go Profile
+                Return Profile
               </Link>
-            </form>
-          }
-        </div>
-     
+            </div>
+          </form>
+        }
+      </div>
     </div>
   );
 };
