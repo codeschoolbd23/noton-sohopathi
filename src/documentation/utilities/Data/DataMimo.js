@@ -4,13 +4,12 @@ import { FaDownload } from "react-icons/fa";
 const DataMimo = ({ viewData,userClass,message}) => {
     console.log(message)
   const menubar = (
-    <div className="w-full grid lg:grid-cols-3 gap-1">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-1">
       {message && (
         <div className="flex flex-grow p-10 text-2xl min-w-96 mx-auto">
           {message}
         </div>
       )}
-
       {viewData?.map(
         (view) =>
           userClass?.userClassPosition === view?.userClass && (
@@ -37,7 +36,7 @@ const DataMimo = ({ viewData,userClass,message}) => {
               </div>
               <iframe
                 src={`https://drive.google.com/file/d/${view.viewLink}/preview`}
-                className="bg-blue-600 w-"
+                className="bg-blue-600 border-2 border-double border-orange-600 w-full"
                 allow="autoplay"
                 height={"380"}
                 aria-brailleroledescription="Preview of the book"
