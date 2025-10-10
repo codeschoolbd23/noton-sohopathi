@@ -17,7 +17,6 @@ const ClassEightProfile=()=>{
 }
 const ClassNineProfile=()=>{
     const data=useLoaderData()
-    console.log(data);
     return <Profile data={data} rout="9"/>
 }
 const ClassTenProfile=()=>{

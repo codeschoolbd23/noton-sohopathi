@@ -3,7 +3,7 @@ import { AuthContext } from "../../../context/Context";
 // import { useLoaderData } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-const ProfileMimo = ({rout}) => {
+const ProfileMimo = ({ data,rout }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
   const { register, handleSubmit } = useForm();
@@ -137,44 +137,58 @@ const ProfileMimo = ({rout}) => {
         }
       });
   };
-
   const cssInput = "border-0 border-b-2  border-blue w-full m-1 text-white";
 
   return (
     <div className="w-full">
       <div className="p-1 grad3 lg:w-1/2 mx-auto my-2">
         <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
-        {
-          <form onSubmit={handleSubmit(handleUploadData2)} className="w-full ">
-            <div className="w-full">
-              {profileData?.map((profile) => (
-                <div key={profile?.id} className="w-full">
-                  <input
-                    type={profile?.type}
-                    placeholder={profile?.defaultValue}
-                    defaultValue={profile?.defaultValue}
-                    className={`${cssInput}`}
-                    {...register(`${profile?.inputName}`, {
-                      required: true,
-                      readOnly: profile.readonly,
-                    })}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <button className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full">
-                Submit
-              </button>
-              <Link
-                to="/amarclass/9"
-                className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full"
+        {data[0].userEmail === user.email || rout === data[0].userClass ? (
+          <h1>
+            আপনি বর্তমান {data[0].userClass} শ্রেণিতে পড়েন।আপনার ক্লাস রুমের
+            লিংক:
+            <Link className="btn bg-orange-300 text-white hover:bg-blue-500" to={`/amarclass/${data[0].userClass}`}>
+              আমার ক্লাস-{data[0].userClass}
+            </Link>
+          </h1>
+        ) : (
+          <>
+            {
+              <form
+                onSubmit={handleSubmit(handleUploadData2)}
+                className="w-full "
               >
-                Return Profile
-              </Link>
-            </div>
-          </form>
-        }
+                <div className="w-full">
+                  {profileData?.map((profile) => (
+                    <div key={profile?.id} className="w-full">
+                      <input
+                        type={profile?.type}
+                        placeholder={profile?.defaultValue}
+                        defaultValue={profile?.defaultValue}
+                        className={`${cssInput}`}
+                        {...register(`${profile?.inputName}`, {
+                          required: true,
+                          readOnly: profile.readonly,
+                        })}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <button className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full">
+                    Submit
+                  </button>
+                  <Link
+                    to="/amarclass/9"
+                    className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full"
+                  >
+                    Return Profile
+                  </Link>
+                </div>
+              </form>
+            }
+          </>
+        )}
       </div>
     </div>
   );

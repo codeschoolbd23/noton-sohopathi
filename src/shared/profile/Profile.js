@@ -73,7 +73,15 @@ const Profile = ({ data, rout }) => {
         <></>
       ) : (
         <>
-          <Link to={`/amarclass/${rout}/profile`}>Set Profile</Link>
+         {data[0].userEmail === user.email && rout !== data[0].userClass ? 
+                  <h1>
+                    আপনি বর্তমান {data[0].userClass} শ্রেণিতে পড়েন।আপনার ক্লাস রুমের
+                    লিংক:
+                    <Link className="btn bg-orange-300 text-white hover:bg-blue-500" to={`/amarclass/${data[0].userClass}`}>
+                      আমার ক্লাস-{data[0].userClass}
+                    </Link>
+                  </h1>:
+          <Link to={`/amarclass/${rout}/profile`}>Set Profile</Link>}
         </>
       )}
     </div>

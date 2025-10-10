@@ -93,6 +93,8 @@ const Router = () => {
         {
           path: "/sohopathi",
           element: <Sohopathi />,
+          loader: async () =>
+            fetch(`https://sohopathi-server.vercel.app/profile`),
         },
         {
           path: "/amarclass",
