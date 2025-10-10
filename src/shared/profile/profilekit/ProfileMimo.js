@@ -1,62 +1,176 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../context/Context';
-
+import React, { useContext } from "react";
+import { AuthContext } from "../../../context/Context";
+// import { useLoaderData } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 const ProfileMimo = () => {
-  const {user}=useContext(AuthContext)
-    return (
-      <div className="">
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn w-24 rounded-full p-2 text-xs"
-          onClick={() => document.getElementById("my_modal_5").showModal()}
-        >
-          Set Profile
-        </button>
-        <dialog
-          id="my_modal_5"
-          className="modal modal-bottom sm:modal-middle grad2"
-        >
-          <div className="modal-box bg-blue-600/50">
-            <h3 className="font-bold text-lg">Set Your Profile</h3>
-            <div className='m-5 border-b'>
-              <label>Image:</label>
-              <input className=' p-2 ' type="file" name="name" defaultValue={user.photoUrl} />
-            </div>
-            <div className='m-5 border-b'>
-              <label>Name:</label>
-              <input className=' p-2 ' type="text" name="name" defaultValue={user.displayName} />
-            </div>
-            <div className='m-5 border-b'>
-              <label>Email:</label>
-              <input className=' p-2 ' type="email" name="name" defaultValue={user.email} readOnly disabled/>
-            </div>
-            <div className='m-5 border-b'>
-              <label>Mobile Number:</label>
-              <input className=' p-2 ' type="number" name="name" placeholder='Please enter your mobile number' />
-            </div>
-            <div className='m-5 border-b'>
-              <label>Roll:</label>
-              <input className=' p-2 ' type="number" name="name" placeholder='Please enter your roll number' />
-            </div>
-            <div className='m-5 border-b'>
-              <label>Section:</label>
-              <input className=' p-2 ' type="number" name="name" placeholder='Please enter yoursection'/>
-            </div>
-            <div className="modal-action">
-              <form method="dialog flex flex-between w-full">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn p-2 rounded-full mx-2 bg-blue-700 ">
-                  Submit
-                </button>
-                <button className="btn p-2 rounded-full mx-2 bg-red-500 ">
-                  Cancel
-                </button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-      </div>
-    );
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const { register, handleSubmit } = useForm();
+  // const profiledata=useLoaderData()
+  const profileData = [
+    {
+      id: 1,
+      type: "text",
+      inputName: "id",
+      defaultValue: `${user?.uid}`,
+      disabled: true,
+    },
+    {
+      id: 2,
+      type: "text",
+      inputName: "userVersion",
+      defaultValue: "user version",
+      disabled: false,
+    },
+    {
+      id: 3,
+      type: "text",
+      inputName: "userEmail",
+      defaultValue: `${user?.email}`,
+      disabled: true,
+    },
+    {
+      id: 4,
+      type: "text",
+      inputName: "userName",
+      defaultValue: `${user?.displayName}`,
+      disabled: false,
+    },
+    {
+      id: 5,
+      type: "text",
+      inputName: "userInstituteName",
+      defaultValue: "Institution name",
+      disabled: false,
+    },
+    {
+      id: 6,
+      type: "text",
+      inputName: "userClass",
+      defaultValue: "Class",
+      disabled: false,
+    },
+    {
+      id: 7,
+      type: "text",
+      inputName: "userPhotoUrl",
+      defaultValue: `${user?.photoURL}`,
+      disabled: false,
+    },
+    {
+      id: 8,
+      type: "text",
+      inputName: "userClassRoll",
+      defaultValue: "Roll",
+      disabled: false,
+    },
+    {
+      id: 9,
+      type: "text",
+      inputName: "userGroup",
+      defaultValue: "Group",
+      disabled: false,
+    },
+    {
+      id: 10,
+      type: "text",
+      inputName: "userSession",
+      defaultValue: "session",
+      disabled: false,
+    },
+    {
+      id: 11,
+      type: "text",
+      inputName: "userAddress",
+      defaultValue: "address",
+      disabled: false,
+    },
+  ];
+  const handleUploadData2 = (data) => {
+    const {
+      id,
+      userEmail,
+      userInstituteName,
+      userClass,
+      userName,
+      userVersion,
+      userPhotoUrl,
+      userClassRoll,
+      userAddress,
+      userSession,
+      userGroup,
+    } = data;
+    const postData = {
+      id: id,
+      userEmail: userEmail,
+      userName: userName,
+      userInstituteName: userInstituteName,
+      userClass: userClass,
+      userVersion: userVersion,
+      userPhotoUrl: userPhotoUrl,
+      userClassRoll: userClassRoll,
+      userGroup: userGroup,
+      userAddress: userAddress,
+      userSession: userSession,
+    };
+    fetch(`https://sohopathi-server.vercel.app/profile`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.acknowledged) {
+          alert(`${userName} is submitted successfully`);
+        }
+      });
+  };
+
+  const cssInput = "border-0 border-b-2  border-blue w-full m-1 text-white";
+
+  return (
+    <div className="w-full">
+        <div className="p-1 grad3 lg:w-1/2 mx-auto h-screen my-2">
+          <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
+          {
+            <form
+              onSubmit={handleSubmit(handleUploadData2)}
+              className="w-full "
+            >
+              <div className="w-full">
+                {profileData?.map((profile) => (
+                  <div key={profile.id} className="w-full">
+                    <input
+                      type={profile?.type}
+                      placeholder={profile?.defaultValue}
+                      className={`${cssInput}`}
+                      {...register(`${profile?.inputName}`, {
+                        required: true,
+                        disabled: profile?.disabled,
+                      })}
+                    />
+                  </div>
+                ))}
+              </div>
+              <button className="grad3 btn p-4 w-full bg-blue-600 text-white text-2xl hover:text-blue-500 hover:bg-yellow-100 rounded-full">
+                সাবমিট
+              </button>
+              <Link
+                to="/amarclass/9"
+                className="grad3 btn p-4 w-full bg-blue-600 text-white text-2xl hover:text-blue-500 hover:bg-yellow-100 rounded-full"
+              >
+                Go Profile
+              </Link>
+            </form>
+          }
+        </div>
+     
+    </div>
+  );
 };
 
 export default ProfileMimo;

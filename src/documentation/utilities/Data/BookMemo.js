@@ -1,27 +1,49 @@
 import React, { useContext } from "react";
 import { ExternalLink } from "react-external-link";
-import { FaDownload, FaEye } from "react-icons/fa";
+import { FaDownload} from "react-icons/fa";
 import { AuthContext } from "../../../context/Context";
 import { useLoaderData } from "react-router-dom";
 const BookMemo = ({ userClassPosition, userClassName }) => {
   const externalDownload = useLoaderData();
   const { user } = useContext(AuthContext);
   return (
-    <div className="w-full py-5 lg:p-5 min-h-96 text-shadow-lg/20">
+    <div className="w-full py-5 lg:p-5 min-h-screen text-shadow-lg/20">
       <h1 className="p-4 text-start bg-blue-600 text-white w-full">
         {userClassName}
       </h1>
       {user?.displayName && (
-        <h1 className="text-center mb-2">Hi, {user?.displayName}</h1>
+        <h1 className="text-center mb-1">Hi, {user?.displayName}</h1>
       )}
-      <h1 className="w-full text-center text-shadow-lg/50 text-lg lg:text-2xl mb-2">
+      <h1 className="w-full text-center text-shadow-lg/50 text-lg lg:text-lg mb-2">
         আমার বোর্ডবই-২০২৫
       </h1>
       <p className="text-center">সরকার কর্তৃক বিনামূল্যে বিতরণের জন্য। </p>
-      <h1 className="text-center block lg:hidden bg-yellow-200">
-        বাংলা ভার্সন
-      </h1>
-      <div className="lg:flex justify-center w-full lg:gap-1 lg:w-4/5 mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+        {externalDownload.map(
+          (bd) =>
+            bd.userClass === userClassPosition && (
+              <div
+                key={bd.id}
+                className="border-2 border-dotted border-yellow-200 mx-auto"
+              >
+                <h1 className="grad flex flex-col justify-center items-center">
+                  <ExternalLink
+                    href={`https://drive.google.com/uc?export=download&id=${bd?.viewLink}`}
+                    className="p-1 w-5"
+                  >
+                    <FaDownload className="bg-red-500 rounded-full w-5 h-5 p-1" />
+                  </ExternalLink>
+                </h1>
+                <iframe
+                  src={`https://drive.google.com/file/d/${bd?.viewLink}/preview`}
+                  title="...."
+                  height={"380"}
+                />
+              </div>
+            )
+        )}
+      </div>
+      {/* <div className="lg:flex justify-center w-full lg:gap-1 lg:w-4/5 mx-auto">
         <div className="my-1 flex flex-col">
           <div className="grid grid-cols-2 lg:grid-cols-3 mx-2 text-white">
             <div className="flex border">
@@ -88,7 +110,7 @@ const BookMemo = ({ userClassPosition, userClassName }) => {
               )
           )}
         </div>
-        <h1 className="text-center block lg:hidden bg-yellow-200 text-sm">
+        <h1 className="text-center block lg:hidden text-sm">
           ইংরেজি ভার্সন
         </h1>
         <div className="my-1 block lg:hidden">
@@ -134,7 +156,7 @@ const BookMemo = ({ userClassPosition, userClassName }) => {
             )
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
