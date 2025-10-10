@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ExternalLink } from "react-external-link";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaEye } from "react-icons/fa";
 import { AuthContext } from "../../../context/Context";
 import { useLoaderData } from "react-router-dom";
 const BookMemo = ({ userClassPosition, userClassName }) => {
@@ -23,7 +23,7 @@ const BookMemo = ({ userClassPosition, userClassName }) => {
       </h1>
       <div className="lg:flex justify-center w-full lg:gap-1 lg:w-4/5 mx-auto">
         <div className="my-1 flex flex-col">
-          <div className="grid grid-cols-2 lg:grid-cols-3 mx-2 bg-primary text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-3 mx-2 text-white">
             <div className="flex border">
               <p className="text-center w-1/5 p-1 border">নং</p>
               <p className="w-full flex p-1 justify-center">
@@ -37,57 +37,62 @@ const BookMemo = ({ userClassPosition, userClassName }) => {
               <p className="w-full p-1 flex justify-center">ইংরেজি ভার্সন</p>
             </div>
           </div>
-          {externalDownload.map((bd) => (
-            bd.userClass === userClassPosition &&
-            <div className="grid grid-cols-2 lg:grid-cols-3 px-2" key={bd.id}>
-              <div className="flex border">
-                <p className="text-center w-1/5 border text-xs">{bd.id}</p>
-                <p className="w-full text-xs">{bd.bookName}</p>
-              </div>
-              <div className="grid grid-cols-2 border">
-                <p className="w-fit p-0">
-                  <ExternalLink
-                    href={`https://drive.google.com/uc?export=download&id=${bd.viewLink}`}
-                    className="p-1 rounded-full bg-red-600 text-yellow-100 flex text-xs w-fit"
-                  >
-                    <FaDownload className="text-xs" />
-                  </ExternalLink>
-                </p>
-                <p className="w-fit p-0">
-                  <ExternalLink
-                    href={`https://drive.google.com/file/d/${bd.viewLinkEnglish}/view`}
-                    className="p-1 rounded-full bg-primary text-yellow-100 text-xs w-fit"
-                  >
-                    View
-                  </ExternalLink>
-                </p>
-              </div>
-              <div className="hidden lg:grid lg:grid-cols-2 border">
-                <p className="w-fit p-0">
-                  <ExternalLink
-                    href={`https://drive.google.com/uc?export=download&id=${bd.viewLink}`}
-                    className="p-1 rounded-full bg-red-600 text-yellow-100 flex text-xs w-fit"
-                  >
-                    <FaDownload className="text-xs" />
-                  </ExternalLink>
-                </p>
-                <p className="w-fit p-0">
-                  <ExternalLink
-                    href={`https://drive.google.com/file/d/${bd.viewLinkEnglish}/view`}
-                    className="p-1 rounded-full bg-primary text-yellow-100 text-xs w-fit"
-                  >
-                    View
-                  </ExternalLink>
-                </p>
-              </div>
-            </div>
-          ))}
+          {externalDownload.map(
+            (bd) =>
+              bd.userClass === userClassPosition && (
+                <div
+                  className="grid grid-cols-2 lg:grid-cols-3 px-2"
+                  key={bd.id}
+                >
+                  <div className="flex border">
+                    <p className="text-center w-1/5 border text-sm">{bd.id}</p>
+                    <p className="w-full text-sm">{bd?.bookName}</p>
+                  </div>
+                  <div className="grid grid-cols-2 border">
+                    <p className="w-full p-0">
+                      <ExternalLink
+                        href={`https://drive.google.com/uc?export=download&id=${bd?.viewLink}`}
+                        className="p-1 rounded-full text-yellow-100 text-sm w-full"
+                      >
+                        <FaDownload className="text-2xl bg-red-600" />
+                      </ExternalLink>
+                    </p>
+                    <p className="w-full p-0">
+                      <ExternalLink
+                        href={`https://drive.google.com/file/d/${bd?.viewLink}/view`}
+                        className="p-1 rounded-full text-yellow-100 text-sm w-full"
+                      >
+                        <FaEye className="text-4xl text-black"/>
+                      </ExternalLink>
+                    </p>
+                  </div>
+                  <div className="hidden lg:grid lg:grid-cols-2 border">
+                    <p className="w-full p-0">
+                      <ExternalLink
+                        href={`https://drive.google.com/uc?export=download&id=${bd?.viewLink}`}
+                        className="p-1 rounded-full text-yellow-100 text-sm w-full"
+                      >
+                        <FaDownload className="text-2xl bg-red-600" />
+                      </ExternalLink>
+                    </p>
+                    <p className="w-full p-0">
+                      <ExternalLink
+                        href={`https://drive.google.com/file/d/${bd?.viewLink}/view`}
+                        className="p-1 rounded-full text-yellow-100 text-sm w-full"
+                      >
+                        <FaEye className="text-4xl text-black"/>
+                      </ExternalLink>
+                    </p>
+                  </div>
+                </div>
+              )
+          )}
         </div>
         <h1 className="text-center block lg:hidden bg-yellow-200 text-sm">
           ইংরেজি ভার্সন
         </h1>
         <div className="my-1 block lg:hidden">
-          <div className="grid grid-cols-2 mx-2 bg-primary text-white">
+          <div className="grid grid-cols-2 mx-2 text-white">
             <div className="flex border">
               <p className="text-center w-1/5 border p-1 text-sm">নং</p>
               <p className="w-full p-1 text-sm">পাঠ্যপুস্তকের নাম</p>
@@ -100,26 +105,26 @@ const BookMemo = ({ userClassPosition, userClassName }) => {
           </div>
           {externalDownload.map((bd) =>
             bd.userClass === userClassPosition ? (
-              <div className="grid grid-cols-2 px-2" key={bd.id}>
+              <div className="grid grid-cols-2 px-2" key={bd?.id}>
                 <div className="flex border">
-                  <p className="text-center w-1/5 border text-xs">{bd.id}</p>
-                  <p className="w-full text-xs">{bd.bookName}</p>
+                  <p className="text-center w-1/5 border text-sm">{bd?.id}</p>
+                  <p className="w-full text-sm">{bd?.bookName}</p>
                 </div>
                 <div className="grid grid-cols-2 border">
                   <p className="w-fit p-1">
                     <ExternalLink
-                      href={`https://drive.google.com/uc?export=download&id=${bd.viewLink}`}
-                      className="p-1 rounded-full bg-red-600 text-yellow-100 flex text-xs"
+                      href={`https://drive.google.com/uc?export=download&id=${bd?.viewLink}`}
+                      className="p-1 rounded-full text-yellow-100 flex text-sm"
                     >
-                      <FaDownload className="text-xs" />
+                      <FaDownload className="text-2xl bg-red-600 p-1" />
                     </ExternalLink>
                   </p>
-                  <p className="w-fit p-0">
+                  <p className="w-full p-0">
                     <ExternalLink
-                      href={`https://drive.google.com/file/d/${bd.viewLinkEnglish}/view`}
-                      className="p-1 rounded-full bg-primary text-yellow-100 text-xs w-fit"
+                      href={`https://drive.google.com/file/d/${bd?.viewLink}/view`}
+                      className="p-1 rounded-full text-yellow-100 text-sm w-full"
                     >
-                      View
+                      <FaEye className="text-2xl"/>
                     </ExternalLink>
                   </p>
                 </div>
