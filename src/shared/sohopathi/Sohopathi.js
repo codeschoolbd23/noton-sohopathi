@@ -41,12 +41,12 @@ const Sohopathi = () => {
   //   },
   // ];
   return (
-    <ul className="list bg-base-100 ">
-      <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">
+    <ul className="list grad2 p-5 ">
+      <li className="p-4 text-xs opacity-60 tracking-wide">
         Most played sohopathi app in this week
       </li>
       {sohopathiMenu.map((sohopathi) => (
-        <li className="lg:list-row">
+        <li className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full my-1 border-2 border-dotted border-red-400 p-2 mx-auto" key={sohopathi?._id}>
           <div>
             <img
               className="size-10 rounded-box"
