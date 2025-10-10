@@ -130,7 +130,7 @@ const ClassElevenProfile=()=>{
     return <Profile userClassName="XI (একাদশ)" userClassPosition="11" />;
 }
 const ClassTwelveProfile=()=>{
-    return <Performance userClassName="XII (দ্বাদশ)" userClassPosition="12" />;
+    return <Profile userClassName="XII (দ্বাদশ)" userClassPosition="12" />;
 }
 export {
   ClassSix,

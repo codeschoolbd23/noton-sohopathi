@@ -10,7 +10,7 @@ import Library from "../documentation/utilities/library/Library";
 import Sohopathi from "../shared/sohopathi/Sohopathi";
 import Amarclass from "../shared/amarclass/Amarclass";
 import AmarclassMain from "../shared/amarclass/AmarclassMain";
-import Profile from "../shared/profile/Profile";
+
 import {
   ClassSix,
   ClassSeven,
@@ -49,6 +49,29 @@ import {
   ClassTwelvePerformance,
 } from "../documentation/utilities/Data/BookClass";
 import ProfileMimo from "../shared/profile/profilekit/ProfileMimo";
+import {
+  ClassEightProfile,
+  ClassEightProfileMimo,
+  ClassEightProfileUpdate,
+  ClassElevenProfile,
+  ClassElevenProfileMimo,
+  ClassElevenProfileUpdate,
+  ClassNineProfile,
+  ClassNineProfileMimo,
+  ClassNineProfileUpdate,
+  ClassSevenProfile,
+  ClassSevenProfileMimo,
+  ClassSevenProfileUpdate,
+  ClassSixProfile,
+  ClassSixProfileMimo,
+  ClassSixProfileUpdate,
+  ClassTenProfile,
+  ClassTenProfileMimo,
+  ClassTenProfileUpdate,
+  ClassTwelveProfile,
+  ClassTwelveProfileMimo,
+  ClassTwelveProfileUpdate,
+} from "../shared/profile/ProfileData";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -79,10 +102,6 @@ const Router = () => {
               path: "/amarclass",
               element: <Amarclass />,
             },
-            // {
-            //   path: "/amarclass/profile",
-            //   element: <Profile />,
-            // },
             {
               path: "/amarclass/6",
               element: <ClassSix />,
@@ -91,7 +110,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/6",
-                  element: <Profile />,
+                  element: <ClassSixProfile />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/6/profile",
+                  element: <ClassSixProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/6/:id",
+                  element: <ClassSixProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/6/book",
@@ -127,7 +162,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/7",
-                  element: <Profile />,
+                  element: <ClassSevenProfile />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/7/profile",
+                  element: <ClassSevenProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/7/:id",
+                  element: <ClassSevenProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/7/book",
@@ -163,7 +214,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/8",
-                  element: <Profile />,
+                  element: <ClassEightProfile />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/8/profile",
+                  element: <ClassEightProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/8/:id",
+                  element: <ClassEightProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/8/book",
@@ -199,16 +266,25 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/9",
-                  element: <Profile />,
+                  element: <ClassNineProfile />,
                   loader: async () =>
                     fetch(`https://sohopathi-server.vercel.app/profile`),
                 },
                 {
                   path: "/amarclass/9/profile",
-                  element: <ProfileMimo />,
+                  element: <ClassNineProfileMimo />,
                   loader: async () =>
                     fetch(`https://sohopathi-server.vercel.app/profile`),
                 },
+                {
+                  path: "/amarclass/9/:id",
+                  element: <ClassNineProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
+                },
+
                 {
                   path: "/amarclass/9/book",
                   element: <ClassNineBook />,
@@ -243,7 +319,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/10",
-                  element: <Profile />,
+                  element: <ClassTenProfile />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/10/profile",
+                  element: <ClassTenProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/10/:id",
+                  element: <ClassTenProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/10/book",
@@ -279,9 +371,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/11",
-                  element: <Profile />,
+                  element: <ClassElevenProfile />,
                   loader: async () =>
                     fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/11/profile",
+                  element: <ClassElevenProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/11/:id",
+                  element: <ClassElevenProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/11/profile",
@@ -324,7 +430,23 @@ const Router = () => {
               children: [
                 {
                   path: "/amarclass/12",
-                  element: <Profile />,
+                  element: <ClassTwelveProfile />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/12/profile",
+                  element: <ClassTwelveProfileMimo />,
+                  loader: async () =>
+                    fetch(`https://sohopathi-server.vercel.app/profile`),
+                },
+                {
+                  path: "/amarclass/12/:id",
+                  element: <ClassTwelveProfileUpdate />,
+                  loader: async ({ params }) =>
+                    fetch(
+                      `https://sohopathi-server.vercel.app/profile/${params.id}`
+                    ),
                 },
                 {
                   path: "/amarclass/12/book",

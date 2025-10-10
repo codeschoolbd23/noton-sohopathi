@@ -1,54 +1,83 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/Context';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
-const Profile = () => {
-    const {user}=useContext(AuthContext)
-    const userData=useLoaderData()
-    return (
-      <div className="p-2 lg:p-5">
-        <h1>{user?.metadata?.lastSignInTime}</h1>
-        <Link to="/amarclass/9/profile">Set Profile</Link> 
-        {userData?.map(
-          (userProfile) =>
-            user.email === userProfile.userEmaill && (
-              <div className="flex flex-col-reverse lg:flex-row justify-start items-start">
-                <div>
-                  <h1 className="text-5xl font-bold">
-                    {userProfile?.userName || user?.displayName}
-                  </h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userInstituteName}
-                  </h1>
-                  <h1 className="text-xl font-bold">{userProfile?.userName}</h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userClass}
-                  </h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userGroup}
-                  </h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userClassRoll}
-                  </h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userSession}
-                  </h1>
-                  <h1 className="text-xl font-bold">
-                    {userProfile?.userVersion}
-                  </h1>
-                </div>
-                <div>
-                  <img
-                    src={userProfile.userPhotoUrl || user.photoUrl}
-                    alt="..."
-                  />
-                  <p>{userProfile?.userAddress}</p>
-                </div>
+const Profile = ({ data, rout }) => {
+  console.log(data);
+  const cssView =
+    "text-shadow-lg/10 p-2 text-yellow-100 border-b-2 border-dotted uppercase";
+  const { user } = useContext(AuthContext);
+  return (
+    <div className="p-2 lg:p-5">
+      <h1>{user?.metadata?.lastSignInTime}</h1>
+      {data?.map((userProfile) =>
+        user?.email === userProfile?.userEmail &&
+        userProfile?.userClass === rout ? (
+          <>
+            <div className="flex flex-col-reverse lg:flex-row justify-around items-center">
+              <div>
+                <h1 className={`${cssView}`}>
+                  শিক্ষার্থীর নাম:
+                  {userProfile?.userName || user?.displayName}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  প্রতিষ্ঠানের নাম:
+                  {userProfile?.userInstituteName}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  শ্রেণি: {userProfile?.userClass}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  শাখা/বিভাগ: {userProfile?.userGroup}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  শ্রেণির রোল:
+                  {userProfile?.userClassRoll}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  সেশন:
+                  {userProfile?.userSession}
+                </h1>
+                <h1 className={`${cssView}`}>
+                  মিডিয়াম:
+                  {userProfile?.userVersion}
+                </h1>
               </div>
-            )
-        )}
-      </div>
-    );
+              <div>
+                <img
+                  src={userProfile?.userPhotoUrl || user?.photoUrl}
+                  alt="..."
+                />
+                <p className={`${cssView}`}>
+                  ঠিকানা: {userProfile?.userAddress}
+                </p>
+                {userProfile?.userEmail === user?.email &&
+                userProfile?.userClass === rout ? (
+                  <Link
+                    to={`/amarclass/${rout}/${userProfile?._id}`}
+                    className="top-0 btn bg-green-400 rounded-full hover:bg-blue-500"
+                  >
+                    Update Profile
+                  </Link>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )
+      )}
+      {data[0]?.userEmail === user?.email &&data[0]?.userClass === rout ? (
+        <></>
+      ) : (
+        <>
+          <Link to={`/amarclass/${rout}/profile`}>Set Profile</Link>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Profile;

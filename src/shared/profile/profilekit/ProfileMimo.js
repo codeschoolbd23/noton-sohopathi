@@ -3,7 +3,7 @@ import { AuthContext } from "../../../context/Context";
 // import { useLoaderData } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-const ProfileMimo = () => {
+const ProfileMimo = ({rout}) => {
   const { user } = useContext(AuthContext);
   console.log(user);
   const { register, handleSubmit } = useForm();
@@ -13,78 +13,86 @@ const ProfileMimo = () => {
       id: 1,
       type: "text",
       inputName: "id",
+      placeholder: "আপনার আইডি লিখুন/ক্লাস রোল",
       defaultValue: `${user?.uid}`,
-      disabled: true,
+      readonly: true,
     },
     {
       id: 2,
       type: "text",
       inputName: "userVersion",
-      defaultValue: "user version",
-      disabled: false,
+      placeholder: "আপনি কোন ভার্সনে পড়েন? বাংলা/ইংরেজি",
+      defaultValue: "বাংলা",
+      readonly: false,
     },
     {
       id: 3,
       type: "text",
       inputName: "userEmail",
+      placeholder: "আপনার ইমেইল লিখুন",
       defaultValue: `${user?.email}`,
-      disabled: true,
+      readonly: true,
     },
     {
       id: 4,
       type: "text",
       inputName: "userName",
+      placeholder: "আপনার নাম লিখুন",
       defaultValue: `${user?.displayName}`,
-      disabled: false,
+      readonly: false,
     },
     {
       id: 5,
       type: "text",
       inputName: "userInstituteName",
-      defaultValue: "Institution name",
-      disabled: false,
+      placeholder: "আপনার প্রতিষ্ঠানের নাম লিখুন",
+      // defaultValue: "Institution name",
+      readonly: false,
     },
     {
       id: 6,
       type: "text",
       inputName: "userClass",
-      defaultValue: "Class",
-      disabled: false,
+      defaultValue: `${rout}`,
+      readonly: false,
     },
     {
       id: 7,
       type: "text",
       inputName: "userPhotoUrl",
       defaultValue: `${user?.photoURL}`,
-      disabled: false,
+      readonly: false,
     },
     {
       id: 8,
       type: "text",
       inputName: "userClassRoll",
-      defaultValue: "Roll",
-      disabled: false,
+      placeholder: "আপনার রোল লিখুন",
+      defaultValue: "০০০০০",
+      readonly: false,
     },
     {
       id: 9,
       type: "text",
       inputName: "userGroup",
-      defaultValue: "Group",
-      disabled: false,
+      placeholder: "আপনার শাখা/বিভাগ লিখুন",
+      defaultValue: "Science",
+      readonly: false,
     },
     {
       id: 10,
       type: "text",
       inputName: "userSession",
-      defaultValue: "session",
-      disabled: false,
+      defaultValue: "২০২৫",
+      readonly: false,
     },
     {
       id: 11,
       type: "text",
       inputName: "userAddress",
-      defaultValue: "address",
-      disabled: false,
+      placeholder: "আপনার ঠিকানা লিখুন",
+      defaultValue: "..........,বিাংলাদেশ",
+      readonly: false,
     },
   ];
   const handleUploadData2 = (data) => {
@@ -134,27 +142,28 @@ const ProfileMimo = () => {
 
   return (
     <div className="w-full">
-      <div className="p-1 grad3 lg:w-1/2 mx-auto h-screen my-2">
+      <div className="p-1 grad3 lg:w-1/2 mx-auto my-2">
         <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
         {
           <form onSubmit={handleSubmit(handleUploadData2)} className="w-full ">
             <div className="w-full">
               {profileData?.map((profile) => (
-                <div key={profile.id} className="w-full">
+                <div key={profile?.id} className="w-full">
                   <input
                     type={profile?.type}
                     placeholder={profile?.defaultValue}
+                    defaultValue={profile?.defaultValue}
                     className={`${cssInput}`}
                     {...register(`${profile?.inputName}`, {
                       required: true,
-                      disabled: profile?.disabled,
+                      readOnly: profile.readonly,
                     })}
                   />
                 </div>
               ))}
             </div>
             <div className="flex gap-2">
-              <button className="grad3 btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full">
+              <button className="grad3 uppercase btn  w-48 bg-blue-600 text-white hover:text-blue-500 hover:bg-yellow-100 rounded-full">
                 Submit
               </button>
               <Link
