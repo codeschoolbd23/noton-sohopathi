@@ -48,7 +48,9 @@ import {
   ClassElevenPerformance,
   ClassTwelvePerformance,
 } from "../documentation/utilities/Data/BookClass";
+
 import ProfileMimo from "../shared/profile/profilekit/ProfileMimo";
+
 import {
   ClassEightProfile,
   ClassEightProfileMimo,
@@ -103,6 +105,8 @@ const Router = () => {
             {
               path: "/amarclass",
               element: <Amarclass />,
+              loader: async () =>
+                fetch(`https://sohopathi-server.vercel.app/profile`),
             },
             {
               path: "/amarclass/6",
