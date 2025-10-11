@@ -150,6 +150,7 @@ const ProfileMimo = ({ data,rout }) => {
                 <div className="w-full">
                   {profileData?.map((profile) => (
                     <div key={profile?.id} className="w-full">
+                      <label className="">{profile?.placeholder}</label>
                       <input
                         type={profile?.type}
                         placeholder={profile?.defaultValue}

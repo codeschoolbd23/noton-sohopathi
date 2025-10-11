@@ -45,7 +45,7 @@ const Profile = ({ data, rout }) => {
               </h1>
             </div>
             <div>
-              <img src={fltUser[0]?.userPhotoUrl || user?.photoUrl} alt="..." />
+              <img src={fltUser[0]?.userPhotoUrl || user?.photoUrl} alt="..." className='w-full'/>
               <p className={`${cssView}`}>ঠিকানা: {fltUser[0]?.userAddress}</p>
               {fltUser[0]?.userEmail === user?.email &&
               fltUser[0]?.userClass === rout ? (
