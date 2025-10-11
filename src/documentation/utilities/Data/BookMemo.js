@@ -3,7 +3,7 @@ import { ExternalLink } from "react-external-link";
 import { FaDownload} from "react-icons/fa";
 import { AuthContext } from "../../../context/Context";
 import { useLoaderData } from "react-router-dom";
-const BookMemo = ({ userClassPosition, userClassName }) => {
+const BookMemo = ({userClassName , userClassPosition }) => {
   const externalDownload = useLoaderData();
   const { user } = useContext(AuthContext);
   return (

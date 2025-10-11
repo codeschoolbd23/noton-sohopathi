@@ -13,8 +13,8 @@ const AmarclassSidebar = ({userClassObject}) => {
         id: 1,
         to1: `/amarclass/${userClassObject.userClassPosition}`,
         bookName: "আমার বৃত্তান্ত",
-        userClassName: <>{user?.displayName?.slice(0, 16)}</>,
-         amarImages: (
+        userClass: <>{user?.displayName?.slice(0, 16)}</>,
+        amarImages: (
           <SiSemanticuireact className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -22,8 +22,8 @@ const AmarclassSidebar = ({userClassObject}) => {
         id: 2,
         to1: `/amarclass/${userClassObject.userClassPosition}/book`,
         bookName: "আমার পাঠ্য বই",
-        userClassName: `${userClassObject?.userClassName}`,
-         amarImages: (
+        userClass: `${userClassObject?.userClassName}`,
+        amarImages: (
           <GiPapers className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -31,8 +31,8 @@ const AmarclassSidebar = ({userClassObject}) => {
         id: 3,
         to1: `/amarclass/${userClassObject.userClassPosition}/question-paper`,
         bookName: "পরীক্ষার প্রশ্নপত্র",
-        userClassName: "বিজ্ঞান বিভাগ",
-         amarImages: (
+        userClass: "বিজ্ঞান বিভাগ",
+        amarImages: (
           <BsFillPatchQuestionFill className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -40,8 +40,8 @@ const AmarclassSidebar = ({userClassObject}) => {
         id: 4,
         to1: `/amarclass/${userClassObject.userClassPosition}/lecture-sheet`,
         bookName: "লেকচার শীট",
-        userClassName: "বিজ্ঞান বিভাগ",
-         amarImages: (
+        userClass: "বিজ্ঞান বিভাগ",
+        amarImages: (
           <SiGooglesheets className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -49,8 +49,8 @@ const AmarclassSidebar = ({userClassObject}) => {
         id: 5,
         to1: `/amarclass/${userClassObject.userClassPosition}/class-performance`,
         bookName: "আমার পড়াশুনার মান",
-        userClassName: "প্রতিবেদন",
-         amarImages: (
+        userClass: "প্রতিবেদন",
+        amarImages: (
           <GiProgression className="grad3 p-1 w-8 h-8 text-blue-600 rounded-xl" />
         ),
       },
@@ -78,7 +78,7 @@ const AmarclassSidebar = ({userClassObject}) => {
               >
                 <div className="text-xs uppercase">{amar.bookName}</div>
                 <h1 className="text-xs uppercase opacity-80">
-                  {amar.userClassName}
+                  {amar.userClass}
                 </h1>
               </Link>
               <Link
