@@ -18,9 +18,8 @@ const Profile = ({ data, rout }) => {
   return (
     <div className="p-2 lg:p-5">
       <h1>{user?.metadata?.lastSignInTime}</h1>
-      <>
-        {user?.email === fltUser[0]?.userEmail && fltUser[0]?.userClass === rout ? (
-          <div className="flex flex-col-reverse lg:flex-row justify-around items-center">
+        {user?.email === fltUser[0]?.userEmail? (
+          <div className="flex flex-col-reverse lg:flex-row justify-around items-center uppercase">
             <div>
               <h1 className={`${cssView}`}>
                 শিক্ষার্থীর নাম:
@@ -52,7 +51,7 @@ const Profile = ({ data, rout }) => {
               fltUser[0]?.userClass === rout ? (
                 <Link
                   to={`/amarclass/${rout}/${fltUser[0]?._id}`}
-                  className="top-0 btn bg-green-400 rounded-full hover:bg-blue-500"
+                  className="top-0 btn bg-green-400 rounded-full hover:bg-blue-500 uppercase"
                 >
                   Update Profile
                 </Link>
@@ -64,9 +63,8 @@ const Profile = ({ data, rout }) => {
             </div>
           </div>
         ) : (
-          <Link to={`/amarclass/${rout}/profile`}>Set Profile</Link>
+          <Link to={`/amarclass/${rout}/profile`} className='uppercase'>Set Profile</Link>
         )}
-      </>
     </div>
   );
 };
