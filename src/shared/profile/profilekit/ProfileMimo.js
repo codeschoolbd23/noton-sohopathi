@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const ProfileMimo = ({ data,rout }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
+  console.log(data);
   const { register, handleSubmit } = useForm();
   // const profiledata=useLoaderData()
   const profileData = [
@@ -142,19 +143,7 @@ const ProfileMimo = ({ data,rout }) => {
   return (
     <div className="w-full">
       <div className="p-1 grad3 lg:w-1/2 mx-auto my-2">
-        <h1 className="p-3 grad2">আমার তথ্য পূরণ করি</h1>
-        {data[0].userEmail === user.email || rout === data[0].userClass ? (
-          <h1>
-            আপনি বর্তমান {data[0].userClass} শ্রেণিতে পড়েন।আপনার ক্লাস রুমের
-            লিংক:
-            <Link className="btn bg-orange-300 text-white hover:bg-blue-500" to={`/amarclass/${data[0].userClass}`}>
-              আমার ক্লাস-{data[0].userClass}
-            </Link>
-          </h1>
-        ) : (
-          <>
-            {
-              <form
+        <form
                 onSubmit={handleSubmit(handleUploadData2)}
                 className="w-full "
               >
@@ -186,9 +175,6 @@ const ProfileMimo = ({ data,rout }) => {
                   </Link>
                 </div>
               </form>
-            }
-          </>
-        )}
       </div>
     </div>
   );
